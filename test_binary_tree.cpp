@@ -65,19 +65,9 @@ TEST_CASE("Test basic operations", "[binary_tree]") {
 
 }
 
-TEST_CASE("Test order traversal", "[binary_tree]") {
-
-  BinaryTree<ItemType, FunctionType> T1("A");
-  BinaryTree<ItemType, FunctionType> T2("B");
-  BinaryTree<ItemType, FunctionType> T3("C");
-
-  T1.attachLeftSubtree(T2);
-  T1.attachRightSubtree(T3);
-
-  std::cout << "Preorder traversal" << std::endl;
-  T1.preorderTraverse(printnode);
-  std::cout << "Inorder traversal" << std::endl;
-  T1.inorderTraverse(printnode);
-  std::cout << "Postorder traversal" << std::endl;
-  T1.postorderTraverse(printnode);
+TEST_CASE("Test buildBinaryTree", "[binary_tree]") {
+	ItemType array[8] = {"1", "2", "3", "4", "5", "6", "7", "8"};
+   BinaryTree<ItemType, FunctionType> T;
+	T.makeBinaryTree(array, 0, 7);
+	T.inorderTraverse(printnode);
 }
