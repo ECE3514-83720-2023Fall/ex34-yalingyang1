@@ -241,7 +241,7 @@ BinaryTree<TreeItemType, FunctionType> BinaryTree<TreeItemType, FunctionType>::m
     BinaryTree leftTree = makeBinaryTree(array,low,mid-1);
     BinaryTree rightTree = makeBinaryTree(array,mid+1,high);
     root = new NodeType(array[mid]);
-    if (leftTree != nullptr) root->leftChildPtr = leftTree.root;
-    if (rightTree != nullptr) root->rightChildPtr = rightTree.root;
+    if (!leftTree.isEmpty()) root->leftChildPtr = leftTree.root;
+    if (!rightTree.isEmpty()) root->rightChildPtr = rightTree.root;
     return *this;
 }
