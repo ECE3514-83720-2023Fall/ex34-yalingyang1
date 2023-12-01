@@ -230,15 +230,15 @@ void BinaryTree<TreeItemType, FunctionType>::postorder(NodeType *treePtr,
 }
 
 template <typename TreeItemType, typename FunctionType>
-BinaryTree<TreeItemType, FunctionType> BinaryTree<TreeItemType, FunctionType>::makeBinaryTree(const TreeItemType *array, int low, int high) {
+void BinaryTree<TreeItemType, FunctionType>::makeBinaryTree(const TreeItemType *array, int low, int high) {
     std::cout << "low, high = " << low << " " << high << std::endl;
     if (low>high) {
 	root=nullptr;
-	return *this;
+	return;
     }
     if (low==high) {
         root = new NodeType(array[low]);
-        return *this;
+        return;
     }
     int mid = low + (high - low)/2;
     BinaryTree leftTree = makeBinaryTree(array,low,mid-1);
@@ -246,6 +246,6 @@ BinaryTree<TreeItemType, FunctionType> BinaryTree<TreeItemType, FunctionType>::m
     root = new NodeType(array[mid]);
     if (!leftTree.isEmpty()) root->leftChildPtr = leftTree.root;
     if (!rightTree.isEmpty()) root->rightChildPtr = rightTree.root;
-    return *this;
+    return;
 
 }

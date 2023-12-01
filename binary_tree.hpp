@@ -69,7 +69,7 @@ public:
   void postorderTraverse(FunctionType visit);
 
   // make a binary search tree from a sorted array
-  BinaryTree makeBinaryTree(const TreeItemType *array, int low, int high);
+  void makeBinaryTree(const TreeItemType *array, int low, int high);
 
 private:
 
